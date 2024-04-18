@@ -5,11 +5,25 @@ const person = {
 };
 
 export const func1 = () => {
-  return {};
+  const personDetail = {
+    ...person,
+    gender: "male",
+    interests: [
+      {
+        name: "programming",
+        emoji: "💻",
+      },
+      {
+        name: "motorcycle",
+        emoji: "🏍",
+      },
+    ],
+  };
+  return personDetail;
 };
 
 export const func2 = () => {
-  return "";
+  return JSON.stringify(person);
 };
 
 const jsonStr = `
@@ -39,7 +53,21 @@ const jsonStr = `
   `;
 
 export const func3 = () => {
-  return "";
+//   const obj = JSON.parse(jsonStr);
+
+//   const result = Object.entries(obj).filter((element) => {
+//     return element[0] === "name" || element[0] === "email" ||element[0]==="company"
+//   }).map((element) => {
+//     if(element[0]==="name"||element[0]==="email"){
+//       return element[1];
+//     }else{
+//      return element[1].name;
+//     }
+    
+//   });
+//  return result.join(',');
+const obj = JSON.parse(jsonStr);
+return obj.name + "," + obj.email +","+ obj.company.name;
 };
 
 const main = () => {
